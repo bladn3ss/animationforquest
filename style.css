@@ -1,0 +1,508 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.star {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: gold;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  z-index: 2;
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.snowflake {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(100vh);
+      opacity: 0;
+  }
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+}
+
+.tree {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.branches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.branch {
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  margin-bottom: -25px;
+  position: relative;
+}
+
+.branch-1 {
+  border-bottom: 80px solid #0a3d08;
+  border-left-width: 100px;
+  border-right-width: 100px;
+}
+
+.branch-2 {
+  border-bottom: 100px solid #0a3d08;
+  border-left-width: 120px;
+  border-right-width: 120px;
+}
+
+.branch-3 {
+  border-bottom: 120px solid #0a3d08;
+  border-left-width: 140px;
+  border-right-width: 140px;
+}
+
+.trunk {
+  width: 40px;
+  height: 60px;
+  background: #4a2d0b;
+  margin-top: 8%;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: gold;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  z-index: 2;
+}
+
+.gift {
+  position: absolute;
+  width: 5%;
+  height: 8%;
+  background-color: #ff2a68;
+  border-radius: 5px;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 2s ease, opacity 1s ease;
+}
+
+#giftItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #d9534f;
+  border-radius: 10px;
+  z-index: 15;
+  transition: opacity 1s ease, transform 2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-increased {
+  width: 15%;
+  height: 20%;
+  bottom: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.gift-1 {
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  background-color: #ff2a68;
+  border-radius: 5px;
+  z-index: 10;
+  bottom: 10%; /* Начальное положение под ёлкой */
+  left: 45%;
+  transform: translateX(0);
+  transition: transform 2s ease, opacity 1s ease;
+}
+
+.gift-move {
+  animation: moveGift 2s ease forwards;
+
+}
+
+@keyframes moveGift {
+  0% {
+      bottom: 10%;
+      left: 45%;
+      transform: translateX(0);
+  }
+  100% {
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.gift-zoom {
+  transform: translate(-50%, -50%) scale(8);
+  transition: transform 2s ease;
+}
+
+.gift-2 {
+  right: 45%;
+}
+
+.bow {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.bow:before, .bow:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 10px;
+  height: 25px;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bow:before {
+  transform: rotate(45deg);
+}
+
+.bow:after {
+  transform: rotate(-45deg);
+}
+
+.toy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 5;
+}
+
+.gift.open .toy {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.gift.open {
+  animation: giftOpen 0.8s ease forwards;
+}
+
+.toy img {
+  width: 50px;
+  height: 50px;
+  transition: opacity 1s ease;
+}
+
+@keyframes giftOpen {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+#giftItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url('giftitem.png');
+  background-size: cover;
+  z-index: 15;
+  transition: opacity 1s ease, transform 2s ease;
+}
+
+#giftItem.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.shooting-star {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation: shootStar 4s linear forwards, starTwinkle 1.5s infinite alternate;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  width: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: starTrail 4s linear forwards;
+}
+
+@keyframes shootStar {
+  0% {
+      left: -10%;
+      top: 10%;
+      opacity: 1;
+  }
+  100% {
+      left: 110%;
+      top: 5%;
+      opacity: 0;
+  }
+}
+
+@keyframes starTwinkle {
+  0% {
+      box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
+  }
+}
+
+@keyframes starTrail {
+  0% {
+      left: -50px;
+      opacity: 1;
+  }
+  100% {
+      left: 40px;
+      opacity: 0;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    left: -10%;
+    top: 50%;
+  }
+  100% {
+    left: 100%;
+    top: 20%;
+    opacity: 0;
+  }
+}
+
+@font-face {
+  font-family: 'HappyNewYearFont';
+  src: url('h1.ttf') format('truetype');
+}
+
+
+.happy-text {
+    font-family: 'HappyNewYearFont', sans-serif;
+    font-size: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: #ffcc00;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+    transition: opacity 2s ease;
+    z-index: 10;
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.snowman {
+  position: absolute;
+  bottom: 100px;
+  right: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.snowman-head {
+  position: relative;
+  z-index: 2;
+  margin-top: -20px;
+}
+
+.head {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 3px solid #000;
+  position: relative;
+  z-index: 2;
+  margin-top: -20px;
+  right: -20%;
+  top: -2%;
+}
+
+.eye-left, .eye-right {
+  position: absolute;
+  top: 20px;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.eye-left {
+  left: 15px;
+}
+
+.eye-right {
+  right: 15px;
+}
+
+.nose {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: orange;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform: translateX(-50%);
+}
+
+.button-1, .button-2, .button-3 {
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.button-1 {
+  top: 45px;
+}
+
+.button-2 {
+  top: 75px;
+}
+
+.button-3 {
+  top: 105px;
+}
+
+.snowman-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-top {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 3px solid #000;
+}
+
+.body-bottom {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 3px solid #000;
+}
+
+.snowman-scarf {
+  width: 100px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  top: 120px;
+  z-index: 1;
+  border-radius: 10px;
+}
